@@ -1,0 +1,11 @@
+<p>user-list works!</p>
+
+@if (users$ | async; as user) {
+    <ul class="pokemon-list">
+        @for (user of user.data; track user.id) {
+        <li>
+            <app-user-item [user]="user" />
+        </li>
+        }
+    </ul>
+}
