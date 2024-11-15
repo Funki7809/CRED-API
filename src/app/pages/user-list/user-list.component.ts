@@ -10,7 +10,11 @@ import { UserService } from '../../core/services/user.service';
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [AsyncPipe, UserItemComponent, ErrorMessageComponent],
+  imports: [
+    AsyncPipe,
+    UserItemComponent,
+    ErrorMessageComponent
+  ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
