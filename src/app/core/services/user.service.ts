@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {  UsersResponse } from '../../interfaces/user';
-import { DEFAULT_PAGINATION } from './user.service.constants';
+import { UsersResponse, User, OneUser } from '@app/interfaces/user';
+import { DEFAULT_PAGINATION, USER_ENDPOINTS } from '@services/user.service.constants';
+import { environment } from "@envs/environment.development";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +26,51 @@ export class UserService {
  * which includes the user data and pagination information.
  */
   getUsers(page: number = DEFAULT_PAGINATION.page, perPage: number = DEFAULT_PAGINATION.perPage): Observable<UsersResponse> {
-    return this.http.get<UsersResponse>(`https://reqres.in/api/users/?page=${page}&per_page=${perPage}`);
+    const url = `${environment.apiUrlBase}${USER_ENDPOINTS.getAllUsers.replace('${page}', page.toString()).replace('${perPage}', perPage.toString())}`;
+
+    return this.http.get<UsersResponse>(url);
+  }
+
+  /**
+   * Fetches a single user from the ReqRes API by ID.
+   *
+   * @param {number} id - The ID of the user to fetch.
+   * 
+   * @returns {Observable<User>} An observable that emits the user data.
+   */
+  getUser(id: number): Observable<OneUser> {
+    const url = `${environment.apiUrlBase}${USER_ENDPOINTS.getUserById.replace('${id}', id.toString())}`;
+    return this.http.get<OneUser>(url);
+  }
+
+  /**
+   * Deletes a user from the ReqRes API by ID.
+   *
+   * @param {number} id - The ID of the user to be deleted.
+   * 
+   * @returns {Observable<void>} An observable that emits when the deletion is successful.
+   */
+  deleteUser(id: number): Observable<void> {
+    const url = `${environment.apiUrlBase}${USER_ENDPOINTS.deleteUserById.replace('${id}', id.toString())}`;
+    const headers = new HttpHeaders().set('accept', '*/*');
+
+    return this.http.delete<void>(url, { headers });
+  }
+
+   /**
+   * Updates a user on the ReqRes API by ID.
+   *
+   * This method sends a PUT request to update user details.
+   *
+   * @param {number} id - The ID of the user to be updated.
+   * @param {User} userData - The user data to update.
+   * 
+   * @returns {Observable<User>} An observable that emits the updated user data.
+   */
+   updateUser(id: number, userData: User): Observable<User> {
+    const url = `${environment.apiUrlBase}${USER_ENDPOINTS.updateUserById.replace('${id}', id.toString())}`;
+    const headers = new HttpHeaders().set('accept', 'application/json');
+    
+    return this.http.put<User>(url, userData, { headers });
   }
 }

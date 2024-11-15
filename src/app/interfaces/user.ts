@@ -19,3 +19,8 @@ export interface User {
     data: User[];
     support: Support;
   }
+
+  export interface OneUser {
+    data: User;
+    support: Support;
+  }

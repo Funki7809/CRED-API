@@ -1,3 +1,26 @@
-<div >
-    <p>{{ user.first_name }}</p>
+<div class="table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td><img [src]="user.avatar" alt="User Avatar" class="user-avatar"></td>
+          <td>
+            <strong>{{ user.first_name }} {{ user.last_name }}</strong><br>
+            <small>{{ user.email }}</small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="delete-row">
+            <button (click)="onDeleteUser(user.id)" class="delete-button">Delete</button>
+            <button (click)="onEditUser(user.id)" class="update-button">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </div>
