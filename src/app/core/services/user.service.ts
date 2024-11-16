@@ -16,7 +16,7 @@ import { environment } from "@envs/environment.development";
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+constructor(private http: HttpClient) { }
 
 /**
  * Fetches a list of users from the ReqRes API.

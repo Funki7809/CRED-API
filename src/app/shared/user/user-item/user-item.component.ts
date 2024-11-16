@@ -44,7 +44,6 @@ export class UserItemComponent {
    *                 used to generate the URL for the edit page.
    */
   onEditUser(userId: number): void {
-    this.router.navigate([USER_ROUTES.EDIT_USER(userId)]); // Use the constant for the route
+    this.router.navigate([USER_ROUTES.EDIT_USER(userId)]);
   }
-
 }

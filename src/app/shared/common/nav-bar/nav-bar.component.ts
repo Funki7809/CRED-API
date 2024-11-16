@@ -12,6 +12,9 @@ import { USER_ROUTES } from '@app/constants/routes.constants';
 export class NavBarComponent {
   constructor(private router: Router) {}
 
+  /**
+   * Navigates to the home page.
+   */
   navigateToHome(): void {
     this.router.navigate([USER_ROUTES.HOME]);
   }

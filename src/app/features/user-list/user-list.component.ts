@@ -19,6 +19,7 @@ import { USER_ROUTES } from '@app/constants/routes.constants'
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
+
 export class UserListComponent {
 
   users$!: Observable<UsersResponse>;

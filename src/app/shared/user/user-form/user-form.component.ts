@@ -36,9 +36,9 @@ export class UserFormComponent {
    */
   onSubmit(form: NgForm): void {
     if (form.valid) {
-      this.formSubmit.emit(this.user);  // Emit the user data if the form is valid
+      this.formSubmit.emit(this.user);
     } else {
-      alert('Fields need to be completed');  // Show an alert if the form is invalid
+      alert('Fields need to be completed');
     }
   }
 }
