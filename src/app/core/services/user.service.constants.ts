@@ -7,5 +7,6 @@ export const USER_ENDPOINTS = {
     getAllUsers: 'users/?page=${page}&per_page=${perPage}',
     getUserById: 'users/${id}',
     deleteUserById: 'users/${id}',
-    updateUserById: 'users/${id}'
+    updateUserById: 'users/${id}',
+    registerUser: 'register'
 }

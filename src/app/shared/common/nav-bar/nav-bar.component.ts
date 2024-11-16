@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { USER_ROUTES } from '@app/constants/routes.constants';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  constructor(private router: Router) {}
 
+  navigateToHome(): void {
+    this.router.navigate([USER_ROUTES.HOME]);
+  }
 }

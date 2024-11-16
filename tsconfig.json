@@ -5,11 +5,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/app/components/*"],
+      "@components/*": ["src/app/shared/*"],
       "@app/*": ["src/app/*"],
       "@services/*": ["src/app/core/services/*"],
       "@interceptors/*": ["src/app/core/interceptors/*"],
-      "@pages/*": ["src/app/pages/*"],
+      "@pages/*": ["src/app/features/*"],
       "@envs/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",

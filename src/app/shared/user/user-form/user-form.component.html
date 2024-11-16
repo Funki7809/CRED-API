@@ -1,0 +1,60 @@
+<div class="main form-container">
+  <div class="form-wrapper">
+    <h2>{{ isEditMode ? 'Edit User' : 'Create User' }}</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input
+          id="first_name"
+          name="first_name"
+          [(ngModel)]="user.first_name"
+          required
+          #firstName="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input
+          id="last_name"
+          name="last_name"
+          [(ngModel)]="user.last_name"
+          required
+          #lastName="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          type="email"
+          required
+          #email="ngModel"
+        />
+      </div>
+
+      @if(!isEditMode) {
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            [(ngModel)]="user.password"
+            type="password"
+            required
+            #password="ngModel"
+          />
+        </div>
+      }
+
+      <div class="button-container">
+        <button
+          type="submit"
+          class="save-button">
+          {{ isEditMode ? 'Save Changes' : 'Create User' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

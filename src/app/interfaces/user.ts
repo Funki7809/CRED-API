@@ -4,6 +4,7 @@ export interface User {
     first_name: string;
     last_name: string;
     avatar: string;
+    password?: string;
   }
   
   interface Support {
@@ -23,4 +24,15 @@ export interface User {
   export interface OneUser {
     data: User;
     support: Support;
+  }
+
+  export interface RegisterRequest {
+    username: string;
+    email: string;
+    password?: string;
+  }
+  
+  export interface RegisterResponse {
+    id: string;
+    token: string;
   }

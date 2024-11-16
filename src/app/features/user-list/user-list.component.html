@@ -5,6 +5,9 @@
         </div>
     }
     @if (users$ | async; as user) {  
+        <div class="button-container">
+            <button class="create-user-btn" (click)="onCreateUser()">Create User</button>
+        </div>
         @if (user.data && user.data.length > 0;) {  
             @for (user of user.data; track user.id) {
                 <app-user-item [user]="user" (userDeleted)="onUserDeleted($event)"/>
